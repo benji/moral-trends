@@ -9,19 +9,19 @@
 </head>
 
 <body>
+  <h1>Moral Trends</h1>
   <div id="container">
     <p>A simple visual representation of
       <a href="https://news.gallup.com/poll/1681/moral-issues.aspx">Gallup's historical data</a>.
+    </p>
+    <p id="fork-p">
+      <a class="github-button" href="https://github.com/benji/moral-trends/fork" aria-label="Fork me on GitHub">Fork</a>
     </p>
     <p style="text-align:justify">
       "I'm going to read you a list of issues. Regardless of whether or not you think it should be legal, for each one, please
       tell me whether you personally believe that in general it is morally acceptable or morally wrong. How about ...?"
     </p>
     <div id="charts"></div>
-
-    <p>
-      <a class="github-button" href="https://github.com/benji/moral-trends/fork" aria-label="Fork me on GitHub">Fork</a>
-    </p>
   </div>
   <script>
     function renderChart(canvasId, title, stats) {
@@ -54,8 +54,8 @@
             borderWidth: 1,
 						fill: false
           }, {
-            label: 'Depends',
-            data: stats.depends,
+            label: 'Other',
+            data: stats.other,
             backgroundColor: [
               'rgba(200, 200, 200, 0.2)'
             ],
