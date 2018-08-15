@@ -9,7 +9,7 @@ https://news.gallup.com/poll/1681/moral-issues.aspx
 
 The graphs show the portion of "Morally acceptable" (green), "Morally wrong" (red) and "Depends" (grey).
 
-The "No opinion" has been removed and is not represented in the graphs.
+The "No opinion" and "Depends" statistics have been merged into "Other" on the graphs.
 
 ### Results
 
