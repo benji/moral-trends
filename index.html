@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <script src="jquery-3.3.1.slim.min.js"></script>
+  <script src="Chart.min.js"></script>
+  <script src="data.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="container">
+    <p>A simple visual representation of
+      <a href="https://news.gallup.com/poll/1681/moral-issues.aspx">Gallup's historical data</a>.
+    </p>
+    <p style="text-align:justify">
+      "I'm going to read you a list of issues. Regardless of whether or not you think it should be legal, for each one, please
+      tell me whether you personally believe that in general it is morally acceptable or morally wrong. How about ...?"
+    </p>
+    <div id="charts"></div>
+
+    <p>
+      <a class="github-button" href="https://github.com/benji/moral-trends/fork" aria-label="Fork me on GitHub">Fork</a>
+    </p>
+  </div>
+  <script>
+    function renderChart(canvasId, title, stats) {
+      console.log(canvasId)
+      var ctx = document.getElementById(canvasId).getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: stats.years,
+          datasets: [{
+            label: 'Morally acceptable',
+            data: stats.good,
+            backgroundColor: [
+              'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+              'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1,
+						fill: false
+          }, {
+            label: 'Morally wrong',
+            data: stats.bad,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)'
+            ],
+            borderWidth: 1,
+						fill: false
+          }, {
+            label: 'Depends',
+            data: stats.depends,
+            backgroundColor: [
+              'rgba(200, 200, 200, 0.2)'
+            ],
+            borderColor: [
+              'rgba(200, 200, 200, 1)'
+            ],
+            borderWidth: 1,
+						fill: false
+          }]
+        },
+        options: {
+          title: {
+            text: title,
+            display: true
+          },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          },
+          plugins: {
+            filler: {
+              propagate: false
+            }
+          }
+        }
+      });
+    }
+
+    i = 0
+    for (var title in data) {
+      console.log(title)
+      stats = data[title]
+      console.log(stats)
+      var c = $("<canvas id=\"chart-" + i + "\" width=\"400\" height=\"400\"></canvas>");
+      $("#charts").append(c)
+      renderChart("chart-" + i, title, stats)
+      i++
+    }
+
+  </script>
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+
+</html>

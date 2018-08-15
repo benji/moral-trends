@@ -1,0 +1,19 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  line-height: 20px
+}
+body, input { font-size:14px; }
+span.partydef { display: block; margin: 5px 0; }
+#container {
+  width:500px;
+  margin: 50px auto;
+}
+
+#dunbar-graph {
+  margin: 20px auto;
+  width:500px;
+  height: 500px;
+  font-size:12px;
+}
+
